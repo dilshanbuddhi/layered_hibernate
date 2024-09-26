@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #aad4ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.contraller.ItemFormContrallert">
+   <children>
+      <Label layoutX="186.0" layoutY="14.0" prefHeight="59.0" prefWidth="226.0" text="ITEM FORM">
+         <font>
+            <Font name="System Bold Italic" size="36.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6842105388641357" green="0.24074074625968933" blue="0.24074074625968933" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.17424172163009644" green="0.1054970771074295" blue="0.6947368383407593" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <TextField fx:id="codeTXT" layoutX="65.0" layoutY="110.0" />
+      <Label layoutX="74.0" layoutY="93.0" text="CODE" />
+      <Label layoutX="300.0" layoutY="150.0" text="Qty" />
+      <Label layoutX="68.0" layoutY="150.0" text="Unit Prize" />
+      <Label layoutX="299.0" layoutY="88.0" prefHeight="26.0" prefWidth="74.0" text="Description" />
+      <TextField fx:id="priceTXT" layoutX="65.0" layoutY="164.0" />
+      <TextField fx:id="qtyTXT" layoutX="300.0" layoutY="164.0" />
+      <TextField fx:id="desTXT" layoutX="299.0" layoutY="110.0" />
+      <Button layoutX="503.0" layoutY="102.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="26.0" prefWidth="60.0" style="-fx-background-color: #38ff03;" text="save" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="504.0" layoutY="231.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="26.0" prefWidth="60.0" style="-fx-background-color: #ff0303;" text="delete" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="504.0" layoutY="190.0" mnemonicParsing="false" onAction="#updateOnaction" style="-fx-background-color: af03ff;" text="upadate" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="504.0" layoutY="147.0" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="26.0" prefWidth="60.0" style="-fx-background-color: #034cff;" text="search" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <TableView layoutX="19.0" layoutY="216.0" prefHeight="170.0" prefWidth="445.0">
+        <columns>
+          <TableColumn fx:id="colCode" prefWidth="75.0" text="CODE" />
+          <TableColumn fx:id="colDes" prefWidth="197.60003662109375" text="DESCRIPTION" />
+            <TableColumn fx:id="colPrize" prefWidth="90.39996337890625" text="UNIT PRIZE" />
+            <TableColumn fx:id="colQty" prefWidth="80.80001220703127" text="QTY" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
