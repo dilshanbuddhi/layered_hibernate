@@ -19,6 +19,8 @@ public class CustomerEntity {
     private String address;
     private int teli;
 
+
+
 /*    @ManyToOne
     private OrderEntity orderEntity;*/
 

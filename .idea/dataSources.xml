@@ -12,5 +12,12 @@ C:/Users/Public/Documents/ijse/layered_mapping/src/main/resources/hibernate.cfg.
       <jdbc-url>jdbc:mysql://localhost:3306/hibernate_layered</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="MySQL" uuid="d9add3b3-b0a4-4e0a-9f1d-4030c6406948">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/hibernate_layered</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

@@ -3,10 +3,12 @@ package org.example.dao.Custom.IMPL;
 import config.FactoryConfiguration;
 import org.example.dao.Custom.CustomerDAO;
 import org.example.entity.CustomerEntity;
+import org.example.entity.ItemEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.sql.Connection;
 import java.util.List;
 
 public class CustomerDAOImpl implements CustomerDAO {
@@ -81,5 +83,15 @@ public class CustomerDAOImpl implements CustomerDAO {
         session.close();
 
         return name;
+    }
+
+    @Override
+    public CustomerEntity getdata(String cid) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Query<CustomerEntity> query = session.createQuery("from CustomerEntity where ID =:id ").setParameter("id",cid);
+        CustomerEntity item = query.getSingleResult();
+        session.close();
+
+        return item;
     }
 }

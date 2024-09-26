@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import org.example.bo.BOFactory;
 import org.example.bo.custom.CustomerBo;
 import org.example.bo.custom.ItemBO;
+import org.example.bo.custom.PlaceOrder;
 import org.example.dto.CustomerDTO;
 import org.example.dto.ItemDTO;
 
@@ -28,6 +29,8 @@ public class PlaceOrderFormContraller {
     public TextField qtyOnhnadtxt;
     public ComboBox<String> cidCmb;
     public ComboBox <String>itemCMb;
+
+    PlaceOrder placeOrder = (PlaceOrder) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.PLACEORDER);
 
     public void initialize(){
 
@@ -74,5 +77,17 @@ public class PlaceOrderFormContraller {
     }
 
     public void placeOrderOnAction(ActionEvent actionEvent) {
+        int qtyy = Integer.parseInt(qty.getText());
+        double prize = Double.parseDouble(unitprizeTxt.getText());
+        String oid = oidtxt.getText();
+        String cid = cidCmb.getValue();
+        String iid = itemCMb.getValue();
+        String des = destxt.getText();
+
+        double tot = qtyy*prize;
+        System.out.println(tot);
+
+        placeOrder.placeOrder(cid,oid,iid,prize,qtyy,tot,des);
+
     }
 }

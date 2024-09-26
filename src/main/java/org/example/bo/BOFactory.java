@@ -2,6 +2,7 @@ package org.example.bo;
 
 import org.example.bo.custom.IMPL.CustometBOImpl;
 import org.example.bo.custom.IMPL.ItemBOImpl;
+import org.example.bo.custom.IMPL.PlaceOrderBOImpl;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -12,7 +13,7 @@ public class BOFactory {
     }
 
     public enum BOTypes{
-        CUSTOMER,ITEM
+        CUSTOMER,ITEM,PLACEORDER
     }
 
 
@@ -22,6 +23,8 @@ public class BOFactory {
                 return new CustometBOImpl();
             case ITEM:
                 return new ItemBOImpl();
+            case PLACEORDER:
+                return new PlaceOrderBOImpl();
             default:
                 return null;
         }

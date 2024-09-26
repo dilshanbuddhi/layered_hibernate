@@ -12,4 +12,6 @@ public interface CustomerDAO extends CrudDAO<CustomerEntity> {
     List<String> getid();
 
     String getname(String id);
+
+    CustomerEntity getdata(String cid);
 }
