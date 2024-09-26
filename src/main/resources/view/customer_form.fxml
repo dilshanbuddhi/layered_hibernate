@@ -47,5 +47,6 @@
             <TableColumn fx:id="colTel" prefWidth="121.60001220703123" text="Tel" />
         </columns>
       </TableView>
+      <Button layoutX="526.0" layoutY="26.0" mnemonicParsing="false" onAction="#backOnAction" text="back" />
    </children>
 </AnchorPane>

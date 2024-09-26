@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,8 +21,9 @@ public class ItemEntity {
     private double unitPrice;
     private int qtyOnhand;
 
-    @ManyToMany
-    private List<OrderEntity> order;
+    @ManyToMany(mappedBy = "itemEntities")
+    private List<OrderEntity> orders = new ArrayList<>();
+
 
     public ItemEntity(String code, String description, double unitPrice, int qtyOnhand) {
         this.code = code;

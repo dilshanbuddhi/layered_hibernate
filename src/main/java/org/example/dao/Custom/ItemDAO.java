@@ -11,4 +11,6 @@ public interface ItemDAO extends CrudDAO<ItemEntity> {
     List<String> getid();
 
     ItemEntity getdata(String value);
+
+    boolean updatedata(ItemEntity item);
 }

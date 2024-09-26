@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import javax.lang.model.type.MirroredTypeException;
 import java.util.List;
 
 public class ItemDAOImpl implements ItemDAO {
@@ -74,5 +75,21 @@ public class ItemDAOImpl implements ItemDAO {
         session.close();
 
         return item;
+    }
+
+    @Override
+    public boolean updatedata(ItemEntity item) {
+        boolean issaved = false;
+        try{
+            Session session= FactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
+            session.update(item);
+            transaction.commit();
+            issaved=true;
+            session.close();
+        }catch (Exception e){
+            System.out.println("update wade hari");
+        }
+       return issaved;
     }
 }

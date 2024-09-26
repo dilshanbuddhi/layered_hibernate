@@ -21,9 +21,8 @@ public class OrderEntity {
     @ManyToOne
     private CustomerEntity customer;
 
-    @ManyToMany (mappedBy = "order")
-    private List<ItemEntity> itemEntities;
-
+    @ManyToMany
+    private List<ItemEntity> itemEntities = new ArrayList<>();
     public OrderEntity(String id, double prize, int qty, CustomerEntity customer) {
         this.id = id;
         this.prize = prize;

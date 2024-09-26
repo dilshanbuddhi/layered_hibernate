@@ -1,7 +1,10 @@
 package org.example.dao.Custom.IMPL;
 
+import config.FactoryConfiguration;
 import org.example.dao.Custom.OrderDAO;
 import org.example.entity.OrderEntity;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class OrderDAOImpl implements OrderDAO {
     @Override
@@ -22,5 +25,22 @@ public class OrderDAOImpl implements OrderDAO {
     @Override
     public OrderEntity search(String id) {
         return null;
+    }
+
+    @Override
+    public boolean savedata(OrderEntity orderEntity) {
+        boolean issaved = false;
+        try{
+            Session session= FactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
+            session.save(orderEntity);
+            transaction.commit();
+            issaved=true;
+            session.close();
+
+        }catch (Exception e){
+            System.out.println("wade aulak");
+        }
+            return issaved;
     }
 }

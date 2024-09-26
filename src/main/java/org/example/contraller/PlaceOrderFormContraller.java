@@ -3,8 +3,12 @@ package org.example.contraller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import org.example.bo.BOFactory;
 import org.example.bo.custom.CustomerBo;
 import org.example.bo.custom.ItemBO;
@@ -12,6 +16,7 @@ import org.example.bo.custom.PlaceOrder;
 import org.example.dto.CustomerDTO;
 import org.example.dto.ItemDTO;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,6 +82,7 @@ public class PlaceOrderFormContraller {
     }
 
     public void placeOrderOnAction(ActionEvent actionEvent) {
+        int qtOnHand = Integer.parseInt(qtyOnhnadtxt.getText());
         int qtyy = Integer.parseInt(qty.getText());
         double prize = Double.parseDouble(unitprizeTxt.getText());
         String oid = oidtxt.getText();
@@ -87,7 +93,16 @@ public class PlaceOrderFormContraller {
         double tot = qtyy*prize;
         System.out.println(tot);
 
-        placeOrder.placeOrder(cid,oid,iid,prize,qtyy,tot,des);
+        placeOrder.placeOrder(cid,oid,iid,prize,qtyy,tot,des,qtOnHand);
 
+    }
+
+    public void dashboardOnaction(ActionEvent actionEvent) throws IOException {
+        AnchorPane rootNode = FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage stage = (Stage) totalTxt.getScene().getWindow();
+        stage.setScene(scene);
     }
 }

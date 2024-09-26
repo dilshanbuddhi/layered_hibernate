@@ -1,12 +1,18 @@
 package org.example.contraller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import org.example.bo.BOFactory;
 import org.example.bo.custom.ItemBO;
 import org.example.dto.ItemDTO;
 import org.example.entity.ItemEntity;
+
+import java.io.IOException;
 
 public class ItemFormContrallert {
     public TextField codeTXT;
@@ -53,4 +59,12 @@ public class ItemFormContrallert {
     }
 
 
+    public void backOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane rootNode = FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage stage = (Stage) desTXT.getScene().getWindow();
+        stage.setScene(scene);
+    }
 }

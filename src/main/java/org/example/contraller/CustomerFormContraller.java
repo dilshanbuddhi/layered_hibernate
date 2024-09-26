@@ -3,14 +3,19 @@ package org.example.contraller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import org.example.bo.BOFactory;
 import org.example.bo.custom.CustomerBo;
 import org.example.dto.CustomerDTO;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class CustomerFormContraller {
@@ -98,5 +103,14 @@ public class CustomerFormContraller {
         nameTXT.setText(customerDTO.getName());
         addressTXT.setText(customerDTO.getAddress());
         teliTXT.setText(String.valueOf(customerDTO.getTeli()));
+    }
+
+    public void backOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane rootNode = FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage stage = (Stage) teliTXT.getScene().getWindow();
+        stage.setScene(scene);
     }
 }
