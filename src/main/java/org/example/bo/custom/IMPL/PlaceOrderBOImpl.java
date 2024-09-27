@@ -42,15 +42,21 @@ public class PlaceOrderBOImpl implements PlaceOrder {
 
         //transaction part
         try{
-            boolean isSaved = orderDAO.savedata(orderEntity);
+            boolean isSaved = orderDAO.savedata(orderEntity,session);
             System.out.println(isSaved+"palaweni eka");
             System.out.println("order eka save");
 
             if (isSaved){
-                boolean issaved2 = itemDAO.updatedata(item);
+                boolean issaved2 = itemDAO.updatedata(item,session);
                 System.out.println(issaved2+"dewani eka");
                 System.out.println("item ekath save");
-                transaction.commit();
+                if (issaved2){
+                    transaction.commit();
+                }
+                else {
+                    transaction.rollback();
+                }
+
             }else {
                 transaction.rollback();
             }

@@ -2,13 +2,11 @@ package org.example.dao.Custom.IMPL;
 
 import config.FactoryConfiguration;
 import org.example.dao.Custom.ItemDAO;
-import org.example.entity.CustomerEntity;
 import org.example.entity.ItemEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import javax.lang.model.type.MirroredTypeException;
 import java.util.List;
 
 public class ItemDAOImpl implements ItemDAO {
@@ -78,15 +76,13 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
-    public boolean updatedata(ItemEntity item) {
+    public boolean updatedata(ItemEntity item, Session session) {
         boolean issaved = false;
         try{
-            Session session= FactoryConfiguration.getInstance().getSession();
-            Transaction transaction = session.beginTransaction();
+            ItemEntity itemEntity = new ItemEntity();
             session.update(item);
-            transaction.commit();
+            /*transaction.commit();*/
             issaved=true;
-            session.close();
         }catch (Exception e){
             System.out.println("update wade hari");
         }
