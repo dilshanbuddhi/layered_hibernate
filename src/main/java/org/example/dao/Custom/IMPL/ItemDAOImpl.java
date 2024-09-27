@@ -84,7 +84,7 @@ public class ItemDAOImpl implements ItemDAO {
             /*transaction.commit();*/
             issaved=true;
         }catch (Exception e){
-            System.out.println("update wade hari");
+            System.out.println("update wade aul");
         }
        return issaved;
     }
